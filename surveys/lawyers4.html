@@ -87,24 +87,18 @@ footer{background:#0F1B28;color:#E8E2D2;padding:20px 22px;text-align:center;font
 </form><footer>شكراً لوقتك — ردّك بيفرق فعلاً.</footer>
 </div>
 <script>
-/* نسخة احتياطية: يُرسل الرد أيضاً إلى جوجل شيت قبل الإرسال العادي للإيميل.
-   لو فشل هذا، الإرسال الأصلي للإيميل يتم كالمعتاد — لا يعطّل أي شيء. */
+/* نسخة احتياطية: يُرسل الرد أيضاً إلى جوجل شيت قبل الإرسال العادي للإيميل. */
 (function(){
-  var URL_SHEET = "https://script.google.com/macros/s/AKfycbwu3x6XJN57HI54M_-nvfqjUVNAmCsovNJ1D5WUpgaBWdhjAw-wP7p0C3AYPbAJdYNOkA/exec";
-  var f = document.querySelector('form');
-  if(!f) return;
-  f.addEventListener('submit', function(){
+  var U="https://script.google.com/macros/s/AKfycbwu3x6XJN57HI54M_-nvfqjUVNAmCsovNJ1D5WUpgaBWdhjAw-wP7p0C3AYPbAJdYNOkA/exec";
+  var f=document.querySelector('form'); if(!f) return;
+  f.addEventListener('submit',function(){
     try{
-      var o = {"__النوع":"مكاتب قانونية","__الوقت": new Date().toISOString()};
-      new FormData(f).forEach(function(v,k){
-        if(k.charAt(0)==='_') return;
-        o[k] = (o[k] ? o[k]+' | ' : '') + v;
-      });
-      var blob = new Blob([JSON.stringify(o)], {type:'text/plain;charset=UTF-8'});
-      if(navigator.sendBeacon){ navigator.sendBeacon(URL_SHEET, blob); }
-      else { fetch(URL_SHEET,{method:'POST',mode:'no-cors',keepalive:true,body:blob}); }
+      var o={"__النوع":document.title,"__الوقت":new Date().toISOString()};
+      new FormData(f).forEach(function(v,k){ if(k.charAt(0)==='_')return; o[k]=(o[k]?o[k]+' | ':'')+v; });
+      var b=new Blob([JSON.stringify(o)],{type:'text/plain;charset=UTF-8'});
+      if(navigator.sendBeacon){navigator.sendBeacon(U,b);}else{fetch(U,{method:'POST',mode:'no-cors',keepalive:true,body:b});}
     }catch(e){}
-  }, false);
+  },false);
 })();
 </script>
 </body></html>
