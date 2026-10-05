@@ -283,12 +283,12 @@ footer a{color:var(--mint)}
 
 <!-- ============ ٥ · خارج نطاق الاختبار — إداري وتجاري ============ -->
 <section id="s5" class="hide">
-  <h2>تم تسجيل طلبك</h2>
+  <h2>الخدمة دي لسه مش ضمن الاختبار</h2>
   <div class="card">
     <p style="margin:0">الخدمة للنوع ده من الوحدات لسه مش ضمن نطاق الاختبار الحالي.
-    سجّلنا طلبك، وهنتواصل معاك لما تكون متاحة.</p>
+    اضغط «إرسال الطلب» عشان نسجّله، وهنتواصل معاك لما الخدمة تبقى متاحة.</p>
   </div>
-  <button class="btn" type="submit" form="confirmForm" id="outBtn">تمام</button>
+  <button class="btn" type="button" id="outBtn">إرسال الطلب</button>
   <button class="btn alt" id="backData2">الرجوع إلى البيانات</button>
 </section>
 
@@ -572,6 +572,18 @@ $("backData").addEventListener("click", function(){
   s4.classList.add("hide"); s3.classList.remove("hide");
   window.scrollTo(0,0);
 });
+$("outBtn").addEventListener("click", function(){
+  var f = $("confirmForm");
+  if (f.requestSubmit) { f.requestSubmit(); }
+  else {
+    /* متصفّحات قديمة: نرسل الحدث يدويًّا ثم نرسل الفورم */
+    send({event:"E6", service:SVC, price_shown:"OUT_OF_SCOPE", price_accepted:""});
+    $("outBtn").disabled = true;
+    $("outBtn").textContent = "بنسجّل طلبك…";
+    f.submit();
+  }
+});
+
 $("backData2").addEventListener("click", function(){
   $("s5").classList.add("hide"); s3.classList.remove("hide");
   window.scrollTo(0,0);
