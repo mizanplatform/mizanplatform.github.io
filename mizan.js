@@ -101,8 +101,15 @@ Array.prototype.forEach.call(document.querySelectorAll("a[data-svc]"), function(
     el.addEventListener("click", function(){
       var n = +el.getAttribute("data-rep-n");
       var p = el.getAttribute("data-rep");
-      var html = '<div class="vcap">نموذج توضيحيّ — البيانات الواردة فيه غير حقيقية.</div>';
-      for (var i=1;i<=n;i++) html += '<img src="img/report-'+p+'-'+i+'.webp" alt="صفحة ' + i + '">';
+      var AR = ["٠","١","٢","٣","٤","٥","٦","٧","٨","٩"];
+      var arn = function(x){ return String(x).replace(/\d/g, function(d){ return AR[+d]; }); };
+      var html = '<div class="vcap">نموذج توضيحيّ — البيانات الواردة فيه غير حقيقية، '
+               + 'والشكل النهائي قد يختلف في التفاصيل.</div>'
+               + '<div class="hint">' + arn(n) + ' صفحات — مرّر للأسفل</div>';
+      for (var i=1;i<=n;i++){
+        html += '<img src="img/report-'+p+'-'+i+'.webp" alt="صفحة ' + i + '">'
+             +  '<div class="pg">صفحة ' + arn(i) + ' من ' + arn(n) + '</div>';
+      }
       box.innerHTML = html;
       v.classList.add("on");
       document.body.style.overflow = "hidden";
