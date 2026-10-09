@@ -103,12 +103,12 @@ Array.prototype.forEach.call(document.querySelectorAll("a[data-svc]"), function(
       var p = el.getAttribute("data-rep");
       var AR = ["٠","١","٢","٣","٤","٥","٦","٧","٨","٩"];
       var arn = function(x){ return String(x).replace(/\d/g, function(d){ return AR[+d]; }); };
-      var html = '<div class="vcap">نموذج توضيحيّ — البيانات الواردة فيه غير حقيقية، '
+      var html = '<div class="vcap">نموذج توضيحيّ — فارغ قبل التعبئة، '
                + 'والشكل النهائي قد يختلف في التفاصيل.</div>'
-               + '<div class="hint">' + arn(n) + ' صفحات — مرّر للأسفل</div>';
+               + '<div class="hint">' + arn(n) + ' جزءًا — مرّر للأسفل</div>';
       for (var i=1;i<=n;i++){
-        html += '<img src="img/report-'+p+'-'+i+'.webp" alt="صفحة ' + i + '">'
-             +  '<div class="pg">صفحة ' + arn(i) + ' من ' + arn(n) + '</div>';
+        html += '<img src="img/report-'+p+'-'+i+'.webp" alt="جزء ' + i + '" loading="lazy">'
+             +  '<div class="pg">' + arn(i) + ' / ' + arn(n) + '</div>';
       }
       box.innerHTML = html;
       v.classList.add("on");
