@@ -45,58 +45,71 @@
     <div class="formcard">
     <div id="sData">
       <div class="stepline">الخطوة ١ من ٢</div>
-      <h2 class="sec">بياناتك وبيانات وحدتك</h2>
-      <div class="priv">يظهر لك سعر الخدمة قبل تأكيد الطلب. وإدخال بياناتك لا يُلزمك بالطلب ولا
-        بالدفع، ونستخدمها للتواصل معك بشأن الخدمة.</div>
-
-      <div id="fields">
-        <label class="f">الاسم
-          <input type="text" id="f_name" autocomplete="name" placeholder="الاسم بالكامل"></label>
-        <label class="f">رقم الهاتف
-          <input type="tel" id="f_phone" inputmode="numeric" autocomplete="tel" placeholder="01xxxxxxxxx"></label>
-        <label class="f">البريد الإلكتروني
-          <input type="email" id="f_email" autocomplete="email" placeholder="name@example.com"></label>
-        <label class="f">المنطقة
-          <select id="f_region"><option value="">اختر المنطقة</option><option>القاهرة الجديدة</option><option>مدينتي</option><option>الشروق</option><option>بدر</option><option>العبور</option><option>العاصمة الإدارية</option><option>مستقبل سيتي</option><option>حدائق العاصمة</option><option>مدينة أخرى</option></select></label>
-        <label class="f">اسم المشروع أو المطوّر
-          <input type="text" id="f_project" placeholder="اسم المشروع أو الشركة المطوّرة"></label>
-        <label class="f">نوع الوحدة
-          <select id="f_unit"><option value="">اختر النوع</option><option>شقة</option><option>دوبلكس</option><option>فيلا أو تاون هاوس</option><option>وحدة إدارية</option><option>وحدة تجارية</option></select></label>
-        
-    <label class="f">هل العقد متاح لديك الآن؟</label>
-    <div class="opts">
-      <label><input type="radio" name="hascontract" value="نعم"><span>نعم</span></label>
-      <label><input type="radio" name="hascontract" value="لا"><span>لا</span></label>
-    </div>
-
-    <label class="f">الموعد المتوقَّع للتعاقد <span>(اختياري)</span>
-      <input type="date" id="f_sdate"></label>
+      <h2 class="sec">سعر الخدمة</h2>
+      <div class="price" id="priceCard">
+        <div class="svc">مراجعة العقد والمستندات — قبل التوقيع</div>
+        <div class="amt">٧٬٥٠٠ جنيه</div>
+        <div class="vat">السعر لا يشمل ضريبة القيمة المضافة.</div>
+        <div class="pay"><b>الدفع بعد إتمام الخدمة واستلام التقرير.</b></div>
+        <div class="inc">يشمل السعر مراجعة نسخة معدَّلة من العقد مرّة واحدة دون تكلفة إضافية، إذا أُرسلت خلال ٦٠ يومًا من تاريخ التقرير.</div>
       </div>
-
-      <div class="err" id="err">يرجى مراجعة الحقول المعلَّمة بالأحمر واستكمال البيانات المطلوبة.</div>
-      <button class="btn" id="toPrice">متابعة إلى السعر</button>
+      <div id="fields">
+        <label class="f">نوع الوحدة
+          <select id="f_unit"><option value="">اختر النوع</option><option>شقة</option><option>دوبلكس</option><option>فيلا أو تاون هاوس</option><option>وحدة إدارية</option><option>وحدة تجارية</option></select><div class="ferr" id="e_unit"></div></label>
+      </div>
+      <div class="err" id="err">يرجى اختيار نوع الوحدة.</div>
+      <button class="btn" id="toPrice">أطلب الخدمة</button>
       <a class="btn alt" href="index.html" style="text-align:center;text-decoration:none">العودة</a>
     </div>
 
     <div id="sPrice" class="hide">
-      <div class="stepline">الخطوة ٢ من ٢</div>
+      <div class="stepline">الخطوة ٢ من ٣</div>
       <h2 class="sec">سعر الخدمة</h2>
-      <div class="price">
+      <div class="price" id="priceCard2">
         <div class="svc" id="p_svc"></div>
         <div class="amt" id="p_amt"></div>
         <div class="vat" id="p_vat">السعر لا يشمل ضريبة القيمة المضافة.</div>
         <div class="pay"><b>الدفع بعد إتمام الخدمة واستلام التقرير.</b></div>
         <div class="inc" id="p_inc">يشمل السعر مراجعة نسخة معدَّلة من العقد مرّة واحدة دون تكلفة إضافية، إذا أُرسلت خلال ٦٠ يومًا من تاريخ التقرير.</div>
+        <div class="inc" id="p_brk"></div>
       </div>
-      <div class="note">ميزان في مرحلة ما قبل الإطلاق. وتأكيد الطلب يعني قبولك هذا السعر للخدمة عند
-        إتاحتها. لن تدفع أي مبلغ الآن، وسنتواصل معك عند بدء تقديم الخدمة.</div>
+      <div class="note">ميزان في مرحلة ما قبل الإطلاق. لن تدفع أي مبلغ الآن، وسنتواصل معك عند بدء تقديم الخدمة.</div>
+      <button class="btn" id="toContact">أطلب الخدمة بهذا السعر</button>
+      <button class="btn alt" id="backPrice">تعديل بيانات الوحدة</button>
+    </div>
 
+    <div id="sContact" class="hide">
+      <div class="stepline">الخطوة ٢ من ٢</div>
+      <h2 class="sec">بيانات التواصل لتأكيد الطلب</h2>
+      <div class="priv">نستخدم بياناتك للتواصل معك بشأن هذا الطلب فقط. تأكيد الطلب يعني قبولك السعر المعروض للخدمة عند إتاحتها، ولا يُلزمك بأي دفع الآن.</div>
+      <div id="cfields">
+        <label class="f">الاسم
+          <input type="text" id="f_name" autocomplete="name" placeholder="الاسم بالكامل"><div class="ferr" id="e_name"></div></label>
+        <label class="f">رقم الهاتف
+          <input type="tel" id="f_phone" inputmode="numeric" autocomplete="tel" placeholder="01xxxxxxxxx"><div class="ferr" id="e_phone"></div></label>
+        <label class="f">البريد الإلكتروني <span>(اختياري)</span>
+          <input type="email" id="f_email" autocomplete="email" placeholder="name@example.com"><div class="ferr" id="e_email"></div></label>
+        <label class="f">المنطقة
+          <select id="f_region"><option value="">اختر المنطقة</option><option>القاهرة الجديدة</option><option>مدينتي</option><option>الشروق</option><option>بدر</option><option>العبور</option><option>العاصمة الإدارية</option><option>مستقبل سيتي</option><option>حدائق العاصمة</option><option>مدينة أخرى</option></select><div class="ferr" id="e_region"></div></label>
+        <label class="f">اسم المشروع أو المطوّر <span>(اختياري)</span>
+          <input type="text" id="f_project" placeholder="اسم المشروع أو الشركة المطوّرة"></label>
+        
+        <label class="f">هل العقد متاح لديك الآن؟ <span>(اختياري)</span></label>
+        <div class="opts">
+          <label><input type="radio" name="hascontract" value="نعم"><span>نعم</span></label>
+          <label><input type="radio" name="hascontract" value="لا"><span>لا</span></label>
+        </div>
+        <label class="f">الموعد المتوقَّع للتعاقد <span>(اختياري)</span>
+          <input type="date" id="f_sdate"></label>
+      </div>
+      <div class="err" id="cerr">يرجى مراجعة الحقول المعلَّمة واستكمال البيانات المطلوبة.</div>
       <form id="confirmForm" method="post" action="https://formsubmit.co/mizanverify.contact@gmail.com" accept-charset="UTF-8">
         <input type="hidden" name="_subject" value="ميزان — طلب جديد مؤكَّد">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_next" value="https://mizanplatform.github.io/thanks.html">
         <input type="hidden" name="معرّف الزيارة" id="h_vid">
+        <input type="hidden" name="تجريبي" id="h_test">
         <input type="hidden" name="الخدمة" id="h_svc">
         <input type="hidden" name="السعر المعروض" id="h_price">
         <input type="hidden" name="الاسم" id="h_name">
@@ -116,15 +129,15 @@
         <input type="hidden" name="الحملة" id="h_campaign">
         <button class="btn" type="submit" id="confirmBtn">تأكيد الطلب</button>
       </form>
-      <button class="btn alt" id="backPrice">العودة إلى البيانات</button>
+      <button class="btn alt" id="backContact">العودة إلى السعر</button>
     </div>
 
     <div id="sOut" class="hide">
       <h2 class="sec">هذا النوع من الوحدات خارج نطاق الخدمة حاليًّا</h2>
-      <div class="note">الخدمة لهذا النوع من الوحدات غير متاحة في المرحلة الحالية.
-        اضغط «إرسال الطلب» لنسجّله، وسنتواصل معك عند إتاحتها.</div>
-      <button class="btn" type="button" id="outBtn">إرسال الطلب</button>
-      <button class="btn alt" id="backOut">العودة إلى البيانات</button>
+      <div class="note">الخدمة للوحدات الإدارية والتجارية غير متاحة في المرحلة الحالية، ولذلك لا نعرض لها سعرًا.
+        إن رغبت، اترك بيانات التواصل لنخبرك عند إتاحتها.</div>
+      <button class="btn" type="button" id="outBtn">ترك بيانات التواصل</button>
+      <button class="btn alt" id="backOut">العودة إلى بيانات الوحدة</button>
     </div>
     </div>
   </div>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>وضع التجربة — ميزان · منظومة ميزان</title>
+<meta name="description" content="صفحة داخلية لتفعيل علامة التجربة.">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" sizes="192x192" href="img/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="img/icon-180.png">
+<meta name="theme-color" content="#0B1B28">
+<meta property="og:image" content="https://mizanplatform.github.io/img/icon-512.png">
+<link rel="stylesheet" href="mizan.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a href="index.html"><img class="logo" src="img/logo-white.png" alt="ميزان"></a>
+    <nav><a href="how.html">كيف تعمل ميزان</a><a href="about.html">عن ميزان</a><a href="faq.html">الأسئلة الشائعة</a><a href="contact.html">تواصل معنا</a></nav>
+    <a class="cta" href="index.html#picks">اطلب الخدمة</a>
+    <a class="fbico" href="https://www.facebook.com/mizanverify" target="_blank" rel="noopener" aria-label="صفحة ميزان على فيسبوك" title="صفحة ميزان على فيسبوك"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.4c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.3H7.4V14h2.8v8h3.3z"/></svg></a>
+  </div>
+</header>
+
+<section class="pbody"><div class="wrap" style="max-width:720px">
+  <h1 class="sec">وضع التجربة</h1>
+  <div class="note">هذه الصفحة للفريق فقط. عند تفعيل وضع التجربة تُعلَّم كل أحداث هذا المتصفح وطلباته «تجريبي» لمدة ١٢ ساعة،
+    ثم تُستبعد من التحليل بمعرّف الزيارة كله. فعّله <b>داخل المتصفح نفسه</b> الذي ستفتح منه الإعلان (مثلًا متصفح فيسبوك الداخلي: افتح هذه الصفحة من رسالة أو تعليق أولًا).</div>
+  <div class="price" style="margin:18px 0"><div class="svc">الحالة الآن</div><div class="amt" id="tstate">…</div>
+    <div class="vat">معرّف الزيارة الحالي: <span id="tvid" dir="ltr"></span></div></div>
+  <div style="display:flex;gap:12px;flex-wrap:wrap">
+    <a class="btn" href="test.html?test=1" style="text-decoration:none;text-align:center;flex:1">تفعيل وضع التجربة</a>
+    <a class="btn alt" href="test.html?test=0" style="text-decoration:none;text-align:center;flex:1">إيقاف وضع التجربة</a>
+  </div>
+  <p style="margin-top:18px">بعد التفعيل افتح الإعلان أو أي صفحة؛ وسجّل معرّف الزيارة ووقت التجربة في سجل التجارب.</p>
+  <h2 class="sec" style="margin-top:26px">أحداث E8 في هذا المتصفح</h2>
+  <div class="note">«معلَّق» = لم يُرسَل بعد وسيُعاد إرساله. «لم يثبت تسليمه» = استنفد ٥ محاولات أو ٢٤ ساعة ولم يُرسَل، ويبقى هنا ولا يُحذف.
+    والإرسال لا يثبت التسجيل في الشيت؛ الضمان هو المطابقة اليومية بين البريد والشيت.</div>
+  <h3 style="margin:14px 0 6px">معلَّق</h3><div id="tpend" dir="ltr" style="font-size:13px;white-space:pre-wrap;background:#fff;border:1px solid #d6dde3;border-radius:8px;padding:10px">—</div>
+  <h3 style="margin:14px 0 6px">لم يثبت تسليمه</h3><div id="tlost" dir="ltr" style="font-size:13px;white-space:pre-wrap;background:#fff;border:1px solid #d6dde3;border-radius:8px;padding:10px">—</div>
+</div></section>
+<script>
+(function(){try{var u=+localStorage.getItem("mz_test_until")||0;var on=u>Date.now();
+document.getElementById("tstate").textContent=on?"مفعَّل حتى "+new Date(u).toLocaleTimeString("ar-EG"):"غير مفعَّل";
+document.getElementById("tvid").textContent=sessionStorage.getItem("mz_vid")||"—";
+function show(k,id){var l=JSON.parse(localStorage.getItem(k)||"[]");document.getElementById(id).textContent=l.length?l.map(function(x){return x.vid+" · "+x.svc+" · "+x.ts+" · محاولات "+x.tries+(x.moved?" · نُقل "+x.moved:"");}).join(String.fromCharCode(10)):"لا شيء";}
+show("mz_e8_pending","tpend");show("mz_e8_unconfirmed","tlost");}catch(e){}})();
+</script>
+
+<footer class="bot">
+  <div class="wrap">
+    <b>ميزان — مراجعة العقد قبل التوقيع، وفحص الوحدة قبل الاستلام.</b>
+    <div>نطاق الخدمة حاليًّا: شرق القاهرة.</div>
+    <div>ميزان في مرحلة ما قبل الإطلاق. تسجيل الطلب متاح، وبدء تقديم الخدمة قريبًا.</div>
+    <div>للتواصل: <a href="mailto:mizanverify.contact@gmail.com">mizanverify.contact@gmail.com</a> · <a href="https://www.facebook.com/mizanverify" target="_blank" rel="noopener">صفحة ميزان على فيسبوك</a></div>
+    <div class="links"><a href="how.html">كيف تعمل ميزان</a><a href="about.html">عن ميزان</a><a href="faq.html">الأسئلة الشائعة</a><a href="contact.html">تواصل معنا</a><a href="terms.html">شروط الخدمة</a><a href="privacy.html">سياسة الخصوصية</a></div>
+  </div>
+</footer>
+<script src="mizan.js"></script>
+</body>
+</html>
