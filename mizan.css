@@ -150,7 +150,7 @@ h2.sec.c{text-align:center}
   border-right:12px solid var(--mint)}
 .step:last-child::after{content:none}
 @media(max-width:860px){.step::after{display:none}}
-.step p{font-size:16px;color:#2E3E4E;margin-top:4px}
+.step p{font-size:16px;color:#0F1B28;margin-top:4px}
 
 .more{display:inline-block;margin-top:20px;font-size:15px;color:var(--teal);font-weight:600}
 
@@ -199,11 +199,11 @@ h2.sec.c{text-align:center}
 .prose > p + h3{margin-top:28px;padding-top:24px;border-top:1px solid #EEF1F3}
 @media(min-width:700px){.prose p{text-align:justify;text-justify:inter-word}}
 .prose h3{font-size:19px;color:var(--navy);margin:26px 0 8px}
-.prose p{margin-bottom:14px;color:#2E3E4E}
+.prose p{margin-bottom:14px;color:#0F1B28}
 .prose p.lead{font-size:18px;color:#36485A}
 ol.fsteps{list-style:none;counter-reset:fs;margin:10px 0 18px}
 ol.fsteps li{counter-increment:fs;position:relative;padding-inline-start:46px;
-  margin-bottom:14px;color:#2E3E4E;font-size:16.5px;line-height:1.8}
+  margin-bottom:14px;color:#0F1B28;font-size:16.5px;line-height:1.8}
 ol.fsteps li::before{content:counter(fs,arabic-indic);position:absolute;
   inset-inline-start:0;top:2px;width:32px;height:32px;border-radius:50%;
   background:var(--teal);color:#fff;display:flex;align-items:center;
@@ -218,16 +218,16 @@ ol.fsteps li:last-child::after{display:none}
 
 /* ====== بطاقات الأقسام في الصفحات النصّية ====== */
 .secs{max-width:860px;margin:0 auto;display:grid;gap:18px}
-.sec-card{background:#fff;border:1.5px solid #C9D9D4;border-radius:14px;overflow:hidden;
+.sec-card{background:#fff;border:1.5px solid #E3E8EC;border-radius:14px;overflow:hidden;
   border-inline-start:6px solid var(--teal);box-shadow:0 2px 12px rgba(15,27,40,.05)}
-.sec-card:nth-child(even){background:var(--cream);border-color:#DED3B6}
+.sec-card:nth-child(even){background:var(--cream);border-color:#E3E8EC}
 .sec-card > .hd{background:var(--teal);color:#fff;padding:13px 20px;
   display:flex;align-items:center;gap:12px;font-weight:700;font-size:18px;line-height:1.5}
 .sec-card:nth-child(even) > .hd{background:#0C3233}
 .sec-card > .hd .n{flex:0 0 32px;height:32px;border-radius:50%;background:#fff;color:var(--teal);
   display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700}
 .sec-card > .bd{padding:20px 22px}
-.sec-card > .bd p{margin-bottom:12px;color:#2E3E4E;font-size:16.5px;line-height:1.95}
+.sec-card > .bd p{margin-bottom:12px;color:#0F1B28;font-size:16.5px;line-height:1.95}
 .sec-card > .bd p:last-child{margin-bottom:0}
 @media(min-width:700px){.sec-card > .bd p{text-align:justify;text-justify:inter-word}}
 @media(max-width:860px){
@@ -237,7 +237,7 @@ ol.fsteps li:last-child::after{display:none}
   .sec-card > .bd p{font-size:15.5px;line-height:1.9}
 }
 /* نقطة الثقل الواحدة في الصفحة */
-.focus{background:var(--navy);color:#E8F0F4;border:1.5px solid var(--mint);border-radius:14px;
+.focus{background:var(--navy);color:#FFFFFF;border:1.5px solid var(--mint);border-radius:14px;
   padding:22px 24px;max-width:860px;margin:0 auto}
 .focus b{color:var(--mint);display:block;margin-bottom:8px;font-size:17px}
 .focus p{color:#C8D6E0;font-size:16.5px;line-height:1.95;margin:0}
@@ -253,9 +253,9 @@ ol.fsteps li:last-child::after{display:none}
 
 /* ====== الأسئلة ====== */
 .qa{max-width:820px;margin:0 auto}
-.qa details{border:1.5px solid #C9D9D4;border-inline-start:5px solid var(--teal);
+.qa details{border:1.5px solid #E3E8EC;border-inline-start:5px solid var(--teal);
   border-radius:10px;margin-bottom:11px;background:#fff;overflow:hidden}
-.qa details[open]{background:var(--cream);border-color:#DED3B6;border-inline-start-color:var(--teal)}
+.qa details[open]{background:var(--cream);border-color:#E3E8EC;border-inline-start-color:var(--teal)}
 .qa summary{padding:15px 18px;cursor:pointer;font-weight:600;color:var(--navy);font-size:16.5px;
   list-style:none}
 .qa summary::-webkit-details-marker{display:none}
@@ -321,3 +321,38 @@ footer.bot .links{display:flex;flex-wrap:wrap;gap:10px 18px;padding-top:20px;mar
   footer.bot .links{gap:12px 16px;padding-top:22px;margin-top:14px;line-height:2}
 }
 .hide{display:none!important}
+
+/* ====== أسئلة المراجعة (مجموعات قابلة للفتح) ====== */
+.qsec{max-width:860px;margin:0 auto}
+#questions,#order{scroll-margin-top:84px}
+.qsec .qintro{background:var(--cream);border:1.5px solid #E3E8EC;border-radius:14px;padding:18px 20px;
+  color:#0F1B28;font-size:16.5px;line-height:1.95;margin-bottom:18px}
+.qsec .qintro b{display:block;color:var(--navy);font-size:18px;margin-bottom:6px}
+.qg{border:1.5px solid #E3E8EC;border-radius:12px;background:#fff;margin-bottom:12px;overflow:hidden}
+.qg[open]{border-color:var(--teal)}
+.qg summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:14px 18px;
+  background:var(--teal);color:#fff;font-weight:700;font-size:17px}
+.qg summary::-webkit-details-marker{display:none}
+.qg summary .k{flex:0 0 34px;height:34px;border-radius:9px;background:#fff;color:var(--teal);
+  display:inline-flex;align-items:center;justify-content:center;font-size:15px}
+.qg summary::after{content:"+";margin-inline-start:auto;font-size:22px;line-height:1;color:var(--mint)}
+.qg[open] summary::after{content:"−"}
+.qg ol{list-style:none;margin:0;padding:6px 18px 10px;counter-reset:q}
+.qg ol li{counter-increment:q;position:relative;padding:14px 46px 14px 0;border-bottom:1px solid var(--line);
+  color:var(--ink);font-size:16.5px;line-height:1.9}
+.qg ol li:last-child{border-bottom:0}
+.qg ol li::before{content:counter(q,arabic-indic);position:absolute;right:0;top:15px;width:32px;height:32px;
+  border-radius:8px;background:var(--teal);color:#fff;font-size:14px;display:flex;align-items:center;justify-content:center}
+.qsec .qclose{background:var(--navy);color:#FFFFFF;border:1.5px solid var(--mint);border-radius:14px;
+  padding:18px 20px;font-size:16.5px;line-height:1.95;margin-top:18px}
+.qsec .qclose a.btn{display:inline-block;margin-top:12px;text-decoration:none;text-align:center;min-width:260px}
+.qsec .qclose p{margin:0}
+@media(max-width:860px){
+  .qsec .qintro{padding:15px 15px;font-size:15.5px}
+  .qg summary{font-size:15.5px;padding:12px 14px}
+  .qg ol{padding:4px 14px 8px}
+  .qg ol li{font-size:15.5px;padding:12px 40px 12px 0}
+  .qg ol li::before{width:28px;height:28px;font-size:13px;top:13px}
+  .qsec .qclose{padding:15px 15px;font-size:15.5px}
+  .qsec .qclose a.btn{width:100%}
+}
