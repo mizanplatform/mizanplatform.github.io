@@ -81,6 +81,7 @@ function send(obj){
   obj.campaign = CMP;
   obj.device = DEV;
   obj.test = TEST ? "YES" : "";
+  obj.page_version = "v2";
   try{
     var b = new Blob([JSON.stringify(obj)], {type:"text/plain;charset=UTF-8"});
     if (navigator.sendBeacon){ navigator.sendBeacon(SHEET, b); }
@@ -207,7 +208,7 @@ if (SVC){
     var out = OUT_OF_SCOPE.indexOf(this.value) !== -1;
     Array.prototype.forEach.call(fields.children, function(ch){ if (!ch.contains($("f_unit"))) ch.classList.toggle("hide", out); });
     if (out) $("extOnly").classList.add("hide"); else if (radioVal("hasext") === "نعم") $("extOnly").classList.remove("hide");
-    $("toPrice").textContent = out ? "متابعة" : (SVC === "eng" ? "اعرض السعر" : "أطلب الخدمة");
+    $("toPrice").textContent = out ? "متابعة" : (SVC === "eng" ? "اعرض السعر" : "ابدأ تسجيل طلبك بعد عرض السعر");
   });
   Array.prototype.forEach.call(document.querySelectorAll('input[name="hasext"]'), function(r){
     r.addEventListener("change", function(){
@@ -414,4 +415,17 @@ if (ansBtn){
   });
 }
 
+})();
+
+/* v2: إخفاء الزر الثابت عند ظهور قسم الطلب أو فتح لوحة المفاتيح */
+(function(){
+  var bar=document.getElementById("stickyBar"), ord=document.getElementById("order");
+  if(!bar||!ord) return;
+  var inView=false, typing=false;
+  function upd(){ bar.classList.toggle("off", inView||typing); }
+  if("IntersectionObserver" in window){
+    new IntersectionObserver(function(en){ inView=en[0].isIntersecting; upd(); },{threshold:0.05}).observe(ord);
+  }
+  document.addEventListener("focusin",function(e){ if(/^(INPUT|SELECT|TEXTAREA)$/.test(e.target.tagName)){ typing=true; upd(); } });
+  document.addEventListener("focusout",function(){ typing=false; upd(); });
 })();
